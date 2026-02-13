@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💖 Be My Valentine 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>To the one true and forever love</h1>
+    <div class="heart">💖</div>
+
+    <div class="subtitle">
+      Warning: This page contains extreme romance and mild goofiness.
+    </div>
+
+    <div class="photo-row">
+      <!-- Replace these with your own images -->
+      <div class="photo">
+        <img src="images/image2.jpg" alt="Us being cute">
+      </div>
+      <div class="photo">
+        <img src="images/image2.jpg" alt="Another cute moment">
+      </div>
+      <div class="photo">
+        <img src="images/image2.jpg" alt="Your forever valentine">
+      </div>
+    </div>
+
+    <div class="card">
+      <p>
+        Every day with you feels like my favorite place, my favorite song, and my favorite laugh all rolled into one ridiculously attractive human. Honestly?
+        It’s unfair how much I miss you. Come fix that
+      </p>
+
+      <p>
+        Would you make me the happiest person alive and be my Valentine?
+        I promise to make it worth your while — smiles, kisses, and zero refunds. 💘
+      </p>
+
+      <div class="list">
+        <strong>This Valentine’s date includes:</strong>
+        <ul>
+          <li>🌹 Romance (the real kind)</li>
+          <li>🍝 Delicious food</li>
+          <li>😂 Laughing until our faces hurt</li>
+          <li>💋 Kisses (lots, non-negotiable)</li>
+          <li>🐢 Me pretending I planned everything perfectly</li>
+        </ul>
+      </div>
+
+      <button onclick="yes()">YES, OBVIOUSLY 💕</button>
+      <button class="no-btn" onmouseover="moveNo()">No (just kidding)</button>
+
+      <div id="answer" class="hidden">
+        🎉 YOU SAID YES!!! 🎉  
+        <br><br>
+        📅 <strong>February 14</strong>  
+        <br>
+        📍 <strong>Even though we’re miles apart, we can turn it into something magical… our own little world, just you and me. 💫💖</strong> ✨  
+        <br><br>
+        I love you more than words… and slightly more than sleep. So you know it’s real.❤️
+      </div>
+    </div>
+
+    <footer>
+      Made with love, bad jokes, and a very full heart 💞
+    </footer>
+  </div>
+
+ <script>
+  function yes() {
+    document.getElementById("answer").style.display = "block";
+    popHearts();
+  }
+
+  function popHearts() {
+    const card = document.querySelector(".card");
+
+    for (let i = 0; i < 12; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart-pop";
+      heart.textContent = "💖";
+
+      const x = Math.random() * (card.clientWidth - 20);
+      const y = Math.random() * (card.clientHeight - 20);
+
+      heart.style.left = x + "px";
+      heart.style.top = y + "px";
+
+      card.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 1500);
+    }
+  }
+
+  function moveNo() {
+    const button = document.querySelector(".no-btn");
+    const card = document.querySelector(".card");
+
+    const maxX = card.clientWidth - button.offsetWidth - 20;
+    const maxY = card.clientHeight - button.offsetHeight - 20;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+  }
+</script>
+
+</body>
+</html>
